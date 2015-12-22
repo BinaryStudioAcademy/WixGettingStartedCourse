@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <?include "..\Variables.wxi" ?>
+  
+  <Fragment>
+    <ComponentGroup Id="CoreFilesComponent" Directory="INSTALLDIR">
+      <Component Id="MyAppComponent" Guid="BE64A2B8-3932-4223-9EF8-5741F3ED571B">
+        <File Id="MyApp.exe" Source="$(var.SourceDir)\MyApp.exe" KeyPath="yes" />
+      </Component>
+      <Component Id="ReadmeComponent" Guid="80BA7936-7637-47A1-B415-C3ED886D2D1E">
+        <File Id="Readme.txt" Source="$(var.SourceDir)\Readme.txt" KeyPath="yes" />
+      </Component>
+      <Component Id="SharedComponent" Guid="BEDA3C3D-73D4-4812-B1B9-22BD78035132">
+        <File Id="Shared.dll" Source="$(var.SourceDir)\Shared.dll" KeyPath="yes" />
+      </Component>
+    </ComponentGroup>
+  </Fragment>
+</Wix>

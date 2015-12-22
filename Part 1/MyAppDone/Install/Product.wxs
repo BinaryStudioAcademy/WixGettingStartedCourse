@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <?include "Variables.wxi" ?>
+
+  <Product Id="6F3B1AC1-D126-4EDA-89D6-600FCA5BEFC8"
+           Name="$(var.Product)" Version="1.0.0.0" Manufacturer="$(var.Company)"
+           Language="1033" UpgradeCode="F44775E9-35BF-4321-830C-4604B9ED583A">
+
+    <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+
+    <Media Id="1" Cabinet="Data.cab" EmbedCab="yes" />
+
+    <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+
+    <Feature Id="MyAppFeature" Title="$(var.Product)" Level="1">
+      <ComponentGroupRef Id="CoreFilesComponent" />
+      <ComponentRef Id="StartMenuShortcutComponent" />
+    </Feature>
+
+    <Icon Id="InstallerIcon" SourceFile="$(var.SourceDir)\Icon.ico" />
+    <Property Id="ARPPRODUCTICON" Value="InstallerIcon" />
+
+    <WixVariable Id="WixUIBannerBmp" Value="Resources\Banner.png" />
+    <WixVariable Id="WixUIDialogBmp" Value="Resources\Dialog.png" />
+    <WixVariable Id="WixUILicenseRtf" Value="Resources\License.rtf" />
+
+    <Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOXTEXT" Value="Open Readme file" />
+    <Property Id="WixShellExecTarget" Value="[#Readme.txt]" />
+    <CustomAction Id="OpenReadmeAction" BinaryKey="WixCA" DllEntry="WixShellExec" Impersonate="yes" />
+
+    <UI>
+      <UIRef Id="WixUI_InstallDir" />
+      <Property Id="WIXUI_INSTALLDIR" Value="INSTALLDIR" />
+      
+      <Publish Dialog="ExitDialog" Control="Finish" Event="DoAction" Value="OpenReadmeAction">
+        <![CDATA[WIXUI_EXITDIALOGOPTIONALCHECKBOX = 1 and NOT Installed]]>
+      </Publish>
+    </UI>
+    
+  </Product>
+</Wix>
