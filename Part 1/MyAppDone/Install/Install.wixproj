@@ -19,10 +19,11 @@
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <OutputPath>bin\$(Configuration)\</OutputPath>
     <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
+    <Cultures>
+    </Cultures>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="Components\CoreFilesComponent.wxs" />
-    <Compile Include="Components\StartMenuShortcutComponent.wxs" />
     <Compile Include="Directories.wxs" />
     <Compile Include="Product.wxs" />
   </ItemGroup>

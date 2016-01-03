@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
+
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
   <?include "..\Variables.wxi" ?>
-  
+
   <Fragment>
     <ComponentGroup Id="CoreFilesComponent" Directory="INSTALLDIR">
       <Component Id="MyAppComponent" Guid="BE64A2B8-3932-4223-9EF8-5741F3ED571B">

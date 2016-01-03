@@ -15,8 +15,10 @@
 
     <Feature Id="MyAppFeature" Title="$(var.Product)" Level="1">
       <ComponentGroupRef Id="CoreFilesComponent" />
-      <ComponentRef Id="StartMenuShortcutComponent" />
     </Feature>
+
+    <UIRef Id="WixUI_InstallDir" />
+    <Property Id="WIXUI_INSTALLDIR" Value="INSTALLDIR" />
 
     <Icon Id="InstallerIcon" SourceFile="$(var.SourceDir)\Icon.ico" />
     <Property Id="ARPPRODUCTICON" Value="InstallerIcon" />
@@ -25,18 +27,5 @@
     <WixVariable Id="WixUIDialogBmp" Value="Resources\Dialog.png" />
     <WixVariable Id="WixUILicenseRtf" Value="Resources\License.rtf" />
 
-    <Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOXTEXT" Value="Open Readme file" />
-    <Property Id="WixShellExecTarget" Value="[#Readme.txt]" />
-    <CustomAction Id="OpenReadmeAction" BinaryKey="WixCA" DllEntry="WixShellExec" Impersonate="yes" />
-
-    <UI>
-      <UIRef Id="WixUI_InstallDir" />
-      <Property Id="WIXUI_INSTALLDIR" Value="INSTALLDIR" />
-      
-      <Publish Dialog="ExitDialog" Control="Finish" Event="DoAction" Value="OpenReadmeAction">
-        <![CDATA[WIXUI_EXITDIALOGOPTIONALCHECKBOX = 1 and NOT Installed]]>
-      </Publish>
-    </UI>
-    
   </Product>
 </Wix>
