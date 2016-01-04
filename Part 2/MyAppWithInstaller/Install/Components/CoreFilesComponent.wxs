@@ -5,8 +5,14 @@
 
   <Fragment>
     <ComponentGroup Id="CoreFilesComponent" Directory="INSTALLDIR">
+      <Component Id="Log4NetComponent" Guid="2019487B-E93D-442A-9244-2CC0095733CA">
+        <File Id="log4net.dll" Source="$(var.SourceDir)\log4net.dll" KeyPath="yes" />
+      </Component>
       <Component Id="MyAppComponent" Guid="BE64A2B8-3932-4223-9EF8-5741F3ED571B">
         <File Id="MyApp.exe" Source="$(var.SourceDir)\MyApp.exe" KeyPath="yes" />
+      </Component>
+      <Component Id="MyAppConfigComponent" Guid="5A046B13-6B6A-4B78-9094-E912FBDE052E">
+        <File Id="MyApp.exe.config" Source="$(var.SourceDir)\MyApp.exe.config" KeyPath="yes" />
       </Component>
       <Component Id="ReadmeComponent" Guid="80BA7936-7637-47A1-B415-C3ED886D2D1E">
         <File Id="Readme.txt" Source="$(var.SourceDir)\Readme.txt" KeyPath="yes" />
