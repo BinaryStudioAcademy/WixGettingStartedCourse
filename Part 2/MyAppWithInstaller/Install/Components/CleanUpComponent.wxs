@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <?include "..\Variables.wxi" ?>
+
+  <Fragment>
+
+    <Component Id="CleanUpComponent" Guid="1B5540C4-45B4-442E-9718-F7CBA59C12AF" Directory="INSTALLDIR" KeyPath="yes">
+      <RemoveFile Id="RemoveLogFiles" Name="*" Directory="LocalAppDataAppDir" On="uninstall" />
+      <RemoveFolder Id="RemoveLocalAppDataDir" Directory="LocalAppDataAppDir" On="uninstall" />
+      <RemoveFolder Id="RemoveCompanyDir" Directory="CompanyDir" On="uninstall" />
+    </Component>
+
+  </Fragment>
+</Wix>

@@ -8,9 +8,19 @@
     <Directory Id="TARGETDIR" Name="SourceDir">
 
       <Directory Id="ProgramFilesFolder">
-        <Directory Id="INSTALLDIR" Name="$(var.Product)">
-          <Directory Id="ModulesDir" Name="Modules" />
+        <Directory Id="CompanyDir" Name="$(var.Company)">
+          <Directory Id="INSTALLDIR" Name="$(var.Product)">
+            <Directory Id="ModulesDir" Name="Modules" />
+          </Directory>
         </Directory>
+      </Directory>
+
+      <Directory Id="ProgramMenuFolder">
+        <Directory Id="StartMenuDir" Name="$(var.Product)" />
+      </Directory>
+
+      <Directory Id="LocalAppDataFolder">
+        <Directory Id="LocalAppDataAppDir" Name="$(var.Product)" />
       </Directory>
 
     </Directory>

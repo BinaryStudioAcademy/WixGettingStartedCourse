@@ -11,6 +11,7 @@
       <Feature Id="MyAppFeature" Title="$(var.Product)" Description="Main application files." AllowAdvertise="no"
                ConfigurableDirectory="INSTALLDIR" Display="expand" Absent="disallow" Level="1">
         <ComponentGroupRef Id="CoreFilesComponent" />
+        <ComponentRef Id="ShortcutComponent" />
 
         <!-- Hello World Module feature -->
         <Feature Id="HelloWorldModuleFeature" Title="Hello World Module"
@@ -25,6 +26,11 @@
                  Level="2">
           <ComponentGroupRef Id="FileModuleComponent" />
         </Feature>
+      </Feature>
+
+      <!-- Clean Up feature -->
+      <Feature Id="CleanUpFeature" Display="hidden">
+        <ComponentRef Id="CleanUpComponent" />
       </Feature>
 
     </FeatureGroup>

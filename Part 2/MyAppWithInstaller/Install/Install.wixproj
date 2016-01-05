@@ -23,9 +23,11 @@
     </Cultures>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Components\CleanUpComponent.wxs" />
     <Compile Include="Components\HelloWorldModuleComponent.wxs" />
     <Compile Include="Components\FileModuleComponent.wxs" />
     <Compile Include="Components\CoreFilesComponent.wxs" />
+    <Compile Include="Components\ShortcutComponent.wxs" />
     <Compile Include="Directories.wxs" />
     <Compile Include="Features.wxs" />
     <Compile Include="Product.wxs" />

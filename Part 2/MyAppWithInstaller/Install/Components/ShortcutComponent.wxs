@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <?include "..\Variables.wxi" ?>
+
+  <Fragment>
+    <Component Id="ShortcutComponent" Guid="7579D5D0-A626-4EFB-AFBD-E12E16DE3D93" Directory="StartMenuDir">
+      <Shortcut Id="StartMenuShortcut"
+                Name="$(var.Company) $(var.Product)"
+                Description="A demo application for WiX course part 2"
+                Target="[#MyApp.exe]"
+                WorkingDirectory="APPLICATIONROOTDIRECTORY" />
+
+      <RemoveFolder Id="StartMenuDir" On="uninstall" />
+      <RegistryValue Root="HKCU" Key="SOFTWARE\$(var.Company) $(var.Product)" Name="Installed" Type="integer"
+                     Value="1" KeyPath="yes" />
+    </Component>
+  </Fragment>
+</Wix>
