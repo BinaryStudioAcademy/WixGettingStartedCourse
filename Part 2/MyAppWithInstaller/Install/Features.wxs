@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <?include "Variables.wxi" ?>
+
+  <Fragment>
+
+    <FeatureGroup Id="ProductFeatures">
+
+      <!-- Core files feature -->
+      <Feature Id="MyAppFeature" Title="$(var.Product)" Description="Main application files." AllowAdvertise="no"
+               ConfigurableDirectory="INSTALLDIR" Display="expand" Absent="disallow" Level="1">
+        <ComponentGroupRef Id="CoreFilesComponent" />
+
+        <!-- Hello World Module feature -->
+        <Feature Id="HelloWorldModuleFeature" Title="Hello World Module"
+                 Description="Module that just says Hello World!"
+                 AllowAdvertise="no" Level="1">
+          <ComponentRef Id="HelloWorldModuleComponent" />
+        </Feature>
+
+        <!-- File Module feature -->
+        <Feature Id="FileModuleFeature" Title="File Module" Description="Module that uses text file."
+                 AllowAdvertise="no"
+                 Level="2">
+          <ComponentGroupRef Id="FileModuleComponent" />
+        </Feature>
+      </Feature>
+
+    </FeatureGroup>
+
+  </Fragment>
+</Wix>

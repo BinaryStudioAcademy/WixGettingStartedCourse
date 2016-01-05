@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <?include "..\Variables.wxi" ?>
+
+  <Fragment>
+
+    <ComponentGroup Id="FileModuleComponent" Directory="ModulesDir">
+      <Component Id="FileModuleDllComponent" Guid="EFCFEE91-24F5-4030-9CEC-BE23E11D7CF7">
+        <File Id="FileModule.dll" Source="$(var.SourceDir)\Modules\FileModule.dll" KeyPath="yes" />
+      </Component>
+      <Component Id="TextFileComponent" Guid="69C4E6C3-2C42-416D-893A-5342445F6E23">
+        <File Id="TextFile.txt" Source="$(var.SourceDir)\Modules\TextFile.txt" KeyPath="yes" />
+      </Component>
+    </ComponentGroup>
+
+  </Fragment>
+</Wix>

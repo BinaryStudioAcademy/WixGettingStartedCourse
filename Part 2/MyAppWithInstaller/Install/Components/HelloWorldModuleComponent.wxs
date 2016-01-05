@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <?include "..\Variables.wxi" ?>
+
+  <Fragment>
+
+    <Component Id="HelloWorldModuleComponent" Guid="B844CF2E-F956-4F94-9C84-FDF63AA19E4E" Directory="ModulesDir">
+      <File Id="HelloWorldModule.dll" Source="$(var.SourceDir)\Modules\HelloWorldModule.dll" KeyPath="yes" />
+    </Component>
+
+  </Fragment>
+</Wix>

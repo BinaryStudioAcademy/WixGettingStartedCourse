@@ -4,12 +4,16 @@
   <?include "Variables.wxi" ?>
 
   <Fragment>
+
     <Directory Id="TARGETDIR" Name="SourceDir">
 
       <Directory Id="ProgramFilesFolder">
-        <Directory Id="INSTALLDIR" Name="$(var.Product)" />
+        <Directory Id="INSTALLDIR" Name="$(var.Product)">
+          <Directory Id="ModulesDir" Name="Modules" />
+        </Directory>
       </Directory>
 
     </Directory>
+
   </Fragment>
 </Wix>

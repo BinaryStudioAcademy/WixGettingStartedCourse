@@ -13,7 +13,7 @@
 
     <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
 
-    <Feature Id="MyAppFeature" Title="$(var.Product)" Level="1">
+    <Feature Id="MyAppFeature" Title="$(var.Product)">
       <ComponentGroupRef Id="CoreFilesComponent" />
     </Feature>
 

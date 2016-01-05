@@ -4,6 +4,7 @@
   <?include "..\Variables.wxi" ?>
 
   <Fragment>
+
     <ComponentGroup Id="CoreFilesComponent" Directory="INSTALLDIR">
       <Component Id="Log4NetComponent" Guid="2019487B-E93D-442A-9244-2CC0095733CA">
         <File Id="log4net.dll" Source="$(var.SourceDir)\log4net.dll" KeyPath="yes" />
@@ -21,5 +22,6 @@
         <File Id="Shared.dll" Source="$(var.SourceDir)\Shared.dll" KeyPath="yes" />
       </Component>
     </ComponentGroup>
+
   </Fragment>
 </Wix>
