@@ -3,8 +3,7 @@
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
   <?include "Variables.wxi" ?>
 
-  <Product Id="6F3B1AC1-D126-4EDA-89D6-600FCA5BEFC8"
-           Name="$(var.Product)" Version="1.0.0.0" Manufacturer="$(var.Company)"
+  <Product Id="*" Name="$(var.Product)" Version="!(bind.FileVersion.MyApp.exe)" Manufacturer="$(var.Company)"
            Language="1033" UpgradeCode="F44775E9-35BF-4321-830C-4604B9ED583A">
 
     <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
