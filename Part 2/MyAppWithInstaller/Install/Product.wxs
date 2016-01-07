@@ -12,10 +12,21 @@
 
     <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
 
+    <!-- .NET Framework 4.6 -->
+    <PropertyRef Id="WIX_IS_NETFRAMEWORK_46_OR_LATER_INSTALLED" />
+    <Condition Message="This setup requires the .NET Framework 4.6 installed.">
+      <![CDATA[Installed OR WIX_IS_NETFRAMEWORK_46_OR_LATER_INSTALLED]]>
+    </Condition>
+
     <FeatureGroupRef Id="ProductFeatures" />
 
     <!-- UI -->
     <UIRef Id="WixUI_Mondo" />
+    <UI>
+      <Publish Dialog="ExitDialog" Control="Finish" Event="DoAction" Value="OpenReadmeAction">
+        <![CDATA[WIXUI_EXITDIALOGOPTIONALCHECKBOX = 1 and NOT Installed]]>
+      </Publish>
+    </UI>
 
     <!-- Resources -->
     <Icon Id="InstallerIcon" SourceFile="$(var.SourceDir)\Icon.ico" />
@@ -24,6 +35,11 @@
     <WixVariable Id="WixUIBannerBmp" Value="Resources\Banner.png" />
     <WixVariable Id="WixUIDialogBmp" Value="Resources\Dialog.png" />
     <WixVariable Id="WixUILicenseRtf" Value="Resources\License.rtf" />
+
+    <!-- Open Readme.txt after installation -->
+    <Property Id="WIXUI_EXITDIALOGOPTIONALCHECKBOXTEXT" Value="Open Readme file" />
+    <Property Id="WixShellExecTarget" Value="[#Readme.txt]" />
+    <CustomAction Id="OpenReadmeAction" BinaryKey="WixCA" DllEntry="WixShellExec" Impersonate="yes" />
 
   </Product>
 </Wix>
