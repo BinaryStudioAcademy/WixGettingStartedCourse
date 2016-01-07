@@ -1,7 +1,12 @@
 # WiX Getting Started
 #### A course about WiX Toolset
 
-## Part 1 - Simple installer
+## Part 1
+* What is WiX?
+* Windows Installer features
+* WiX Toolset features
+* How WiX works
+* Basic WiX project structure
 * Features and components
 * Directories and files
 * Fragments
@@ -9,7 +14,7 @@
 * Built-in UI dialogs
 * Custom resources
 
-## Part 2 - An advanced installer
+## Part 2
 * Multiple Features
 * Automatic version setting
 * Preprocessor
@@ -19,3 +24,11 @@
 * Registry
 * Upgrade possibility
 * Opening Readme.txt file at the end
+
+## Part 3
+* Harvesting components using heat.exe
+* Creating website on the IIS
+* Modifying XML files
+* Creating custom UI windows
+* Modifying built-in UI
+* Persisting properties pattern
