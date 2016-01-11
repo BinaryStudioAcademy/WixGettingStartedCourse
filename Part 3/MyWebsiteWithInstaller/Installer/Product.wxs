@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Product Id="*" Name="Installer" Language="1033" Version="1.0.0.0" Manufacturer=""
+           UpgradeCode="5608c85d-904e-4a4d-aad8-640bfa939e4e">
+    
+    <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+
+    <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+
+    <Feature Id="ProductFeature" Title="Installer" Level="1">
+      
+    </Feature>
+  </Product>
+</Wix>
