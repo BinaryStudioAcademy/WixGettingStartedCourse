@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi"
+     xmlns:iis="http://schemas.microsoft.com/wix/IIsExtension">
+  <?include "..\Variables.wxi" ?>
+
+  <Fragment>
+    <ComponentGroup Id="WebsiteComponent" Directory="TARGETDIR">
+      <Component Id="WebAppPoolComponent" Guid="06A826E9-9ECD-4CD6-A980-776271AE3878" KeyPath="yes">
+        <iis:WebAppPool Id="MyWebsiteWebAppPool" Name="$(var.WebsiteName)" Identity="applicationPoolIdentity"
+                        ManagedPipelineMode="Integrated" ManagedRuntimeVersion="v4.0" />
+      </Component>
+
+      <Component Id="WebAppComponent" Guid="F942F71B-79C4-4C8C-96A2-6F8A76D34CC9" KeyPath="yes">
+        <iis:WebSite Id="MyWebsiteWebsite" Description="$(var.WebsiteName)" Directory="INSTALLDIR" AutoStart="yes"
+                     StartOnInstall="yes">
+          <iis:WebAddress Id="AllUnassigned" Port="$(var.WebsitePort)" />
+          <iis:WebApplication Id="MyWebsiteWebApp" Name="$(var.WebsiteName)" WebAppPool="MyWebsiteWebAppPool" />
+        </iis:WebSite>
+      </Component>
+    </ComponentGroup>
+  </Fragment>
+</Wix>

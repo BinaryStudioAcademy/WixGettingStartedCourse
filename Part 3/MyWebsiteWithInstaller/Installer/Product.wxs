@@ -1,15 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
-  <Product Id="*" Name="Installer" Language="1033" Version="1.0.0.0" Manufacturer=""
-           UpgradeCode="5608c85d-904e-4a4d-aad8-640bfa939e4e">
-    
-    <Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+  <?include "Variables.wxi" ?>
 
-    <MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+  <Product Id="*" Name="$(var.Company) $(var.Product)" Manufacturer="$(var.Company)" Version="$(var.Version)"
+           Language="1033" UpgradeCode="7426D706-8254-432A-B315-EB058F8818BA">
 
-    <Feature Id="ProductFeature" Title="Installer" Level="1">
-      
+    <Package Description="$(var.Company) $(var.Product)" InstallerVersion="200" Compressed="yes"
+             InstallScope="perMachine" />
+
+    <Media Id="1" Cabinet="Data.cab" EmbedCab="yes" />
+
+    <MajorUpgrade DowngradeErrorMessage="A newer version of $(var.Company) $(var.Product) is already installed." />
+
+    <!-- Suppress prompt about reboot. We don't install components that require system reboot. -->
+    <Property Id="MSIRESTARTMANAGERCONTROL" Value="Disable" />
+
+    <!-- Requirements -->
+    <!-- .NET Framework 4.6 -->
+    <PropertyRef Id="WIX_IS_NETFRAMEWORK_46_OR_LATER_INSTALLED" />
+    <Condition Message="This setup requires the .NET Framework 4.6 installed.">
+      <![CDATA[Installed OR WIX_IS_NETFRAMEWORK_46_OR_LATER_INSTALLED]]>
+    </Condition>
+
+    <!-- IIS -->
+    <Property Id="IISINSTALLED">
+      <RegistrySearch Id="IisServiceRegistry" Root="HKLM" Key="SOFTWARE\Microsoft\InetStp\Components"
+                      Name="W3SVC" Type="raw" />
+    </Property>
+    <Condition Message="This setup requires the IIS installed.">
+      <![CDATA[Installed OR IISINSTALLED]]>
+    </Condition>
+
+    <!-- Properties -->
+    <Property Id="CONNECTIONSTRING" Secure="yes" Value="$(var.DefaultConnectionString)">
+      <RegistrySearch Id="ConnectionStringRegistry" Root="HKCU" Key="$(var.RegistryKey)" Name="ConnectionString"
+                      Type="raw" />
+    </Property>
+
+    <!-- Features -->
+    <Feature Id="CoreFilesFeature" Title="My Website">
+      <ComponentGroupRef Id="CoreFilesComponent" />
+      <ComponentGroupRef Id="WebsiteComponent" />
+      <ComponentRef Id="ConnectionStringComponent" />
     </Feature>
+
+    <!-- UI -->
+    <Property Id="WIXUI_INSTALLDIR" Value="INSTALLDIR" />
+    <UIRef Id="WixUI_InstallDir" />
+
   </Product>
 </Wix>

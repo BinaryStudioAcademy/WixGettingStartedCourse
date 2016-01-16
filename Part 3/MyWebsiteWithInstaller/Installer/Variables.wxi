@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Include>
+  <?define SourceDir="..\..\..\Publish" ?>
+
+  <?define Company="My Company" ?>
+  <?define Product="My Website" ?>
+  <?define Version="1.0.0.0" ?>
+
+  <?define RegistryKey="Software\$(var.Company)\$(var.Product)" ?>
+
+  <?define WebsiteName="$(var.Company) $(var.Product)" ?>
+  <?define WebsitePort="50777" ?>
+
+  <?define DefaultConnectionString="SQL Server default connection string" ?>
+</Include>

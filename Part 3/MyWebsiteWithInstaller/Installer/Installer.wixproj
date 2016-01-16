@@ -6,7 +6,7 @@
     <ProductVersion>3.10</ProductVersion>
     <ProjectGuid>b9d9246b-055b-4bdf-8aaa-ac00e5a295cb</ProjectGuid>
     <SchemaVersion>2.0</SchemaVersion>
-    <OutputName>Installer</OutputName>
+    <OutputName>My Website Installer</OutputName>
     <OutputType>Package</OutputType>
     <WixTargetsPath Condition=" '$(WixTargetsPath)' == '' AND '$(MSBuildExtensionsPath32)' != '' ">$(MSBuildExtensionsPath32)\Microsoft\WiX\v3.x\Wix.targets</WixTargetsPath>
     <WixTargetsPath Condition=" '$(WixTargetsPath)' == '' ">$(MSBuildExtensionsPath)\Microsoft\WiX\v3.x\Wix.targets</WixTargetsPath>
@@ -15,13 +15,19 @@
     <OutputPath>bin\$(Configuration)\</OutputPath>
     <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
     <DefineConstants>Debug</DefineConstants>
+    <SuppressIces>ICE07</SuppressIces>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
     <OutputPath>bin\$(Configuration)\</OutputPath>
     <IntermediateOutputPath>obj\$(Configuration)\</IntermediateOutputPath>
     <SuppressPdbOutput>True</SuppressPdbOutput>
+    <SuppressIces>ICE07</SuppressIces>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Components\ConnectionStringComponent.wxs" />
+    <Compile Include="Components\WebsiteComponent.wxs" />
+    <Compile Include="Components\CoreFilesComponent.wxs" />
+    <Compile Include="Directories.wxs" />
     <Compile Include="Product.wxs" />
   </ItemGroup>
   <ItemGroup>
@@ -45,6 +51,9 @@
   <ItemGroup>
     <Folder Include="Components" />
     <Folder Include="Dialogs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Variables.wxi" />
   </ItemGroup>
   <Import Project="$(WixTargetsPath)" />
   <!--
