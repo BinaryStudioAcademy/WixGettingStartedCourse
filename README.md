@@ -28,6 +28,8 @@
 ## Part 3
 * Harvesting components using heat.exe
 * Creating website on the IIS
+* Installing Windows Service
+* ICE Validation
 * Modifying XML files
 * Creating custom UI windows
 * Modifying built-in UI
