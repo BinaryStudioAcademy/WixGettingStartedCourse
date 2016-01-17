@@ -27,8 +27,10 @@
     <Compile Include="Components\ConnectionStringComponent.wxs" />
     <Compile Include="Components\WebsiteComponent.wxs" />
     <Compile Include="Components\CoreFilesComponent.wxs" />
+    <Compile Include="Dialogs\ConnectionStringDialog.wxs" />
     <Compile Include="Directories.wxs" />
     <Compile Include="Product.wxs" />
+    <Compile Include="Wizard.wxs" />
   </ItemGroup>
   <ItemGroup>
     <WixExtension Include="WixUtilExtension">
